@@ -9,7 +9,7 @@
   },
   "package": {
     "productName": "anu",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "tauri": {
     "macOSPrivateApi": true,
@@ -26,6 +26,21 @@
         "unminimize": true,
         "startDragging": true,
         "setMinSize": true
+      },
+      "dialog": {
+        "all": true,
+        "ask": true, 
+        "confirm": true, 
+        "message": true, 
+        "open": true, 
+        "save": true 
+      },
+      "path": {
+        "all": true
+      },
+      "fs": {
+        "readFile": true,
+        "readDir": true
       }
     },
     "bundle": {
