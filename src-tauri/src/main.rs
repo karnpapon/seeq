@@ -51,6 +51,7 @@ fn menu<A: Assets>(ctx: &Context<A>) -> Menu {
   let app_conf = AppConf::read();
   let rev = CustomMenuItem::new("REV".to_string(), "reverse step (r)");
   let focus = CustomMenuItem::new("FOC".to_string(), "focus (f)");
+  let insert_content_file = CustomMenuItem::new("INSERT_CONTENT_FILE".to_string(), "insert content file");
   let metronome = CustomMenuItem::new("METRONOME".to_string(), "Enable Metronome Sound");
   let stay_on_top = CustomMenuItem::new("STAY_ON_TOP".to_string(), "Stay On Top");
   let stay_on_top_menu = if app_conf.stay_on_top { stay_on_top.selected() } else { stay_on_top };
@@ -87,6 +88,7 @@ fn menu<A: Assets>(ctx: &Context<A>) -> Menu {
   let submenu_app = Submenu::new("app", Menu::new()
   .add_item(rev)
   .add_item(focus) 
+  .add_item(insert_content_file) 
   .add_native_item(MenuItem::Separator)
   .add_submenu(submenu_midi_conn)
   .add_submenu(submenu_osc_conn)
@@ -111,6 +113,7 @@ fn on_ready(event: WindowMenuEvent<tauri::Wry>) {
   match menu_id {
     "FOC" => {  win.emit("menu-focus", true).unwrap(); },
     "METRONOME" => {  win.emit("menu-metronome", true).unwrap(); },
+    "INSERT_CONTENT_FILE" => {  win.emit("menu-insert-content-file", true).unwrap(); },
     "STAY_ON_TOP" => {
       let app_conf = AppConf::read();
       let stay_on_top = !app_conf.stay_on_top;

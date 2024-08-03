@@ -10,8 +10,10 @@ canvas.install();
 window.addEventListener("load", () => {
   canvas.init();
   metronome.init();
-  const { invoke, event } = window.__TAURI__;
+  const { invoke, event, dialog, fs } = window.__TAURI__;
   const { listen } = event;
+  const { open } = dialog;
+  const { readTextFile } = fs;
 
   function menu_osc(payload){
     if (payload) {
@@ -52,5 +54,23 @@ window.addEventListener("load", () => {
 
   listen("menu-metronome", function (msg) {
     client.enableMetronome = !client.enableMetronome
+  });
+
+  listen("menu-insert-content-file", async function (msg) {
+    const selected = await open({
+      multiple: false,
+      filters: [{
+        name: 'Text',
+        extensions: ['txt']
+      }]
+    });
+    if (Array.isArray(selected)) {
+      // user selected multiple files
+    } else if (selected === null) {
+      // user cancelled the selection
+    } else {
+      const contents = await readTextFile(selected)
+      client.insertData(contents)
+    }
   });
 });

@@ -95,6 +95,21 @@ function Client(){
     canvas.update()
   }
 
+  this.insertData = function(data){
+    res = data
+    client.fetchedDataBuffer = res
+    client.repaint(res)
+    client.console.setTotalLenghtCounterDisplay()
+    client.isGettingData = false
+    loading.loadingElem.classList.remove("loading")
+
+    canvas.clearMarksPos()
+    canvas.globalIdx = 0 
+    canvas.marker.reset()
+    canvas.stepcounter.reset()
+    canvas.stepcursor.reset()
+  }
+
   this.getData = function() {
     var data = ""
     var res = ""
@@ -112,18 +127,7 @@ function Client(){
         data = pages[field]
       })
       if(data){
-        res = data.extract
-        client.fetchedDataBuffer = res
-        client.repaint(res)
-        client.console.setTotalLenghtCounterDisplay()
-        client.isGettingData = false
-        loading.loadingElem.classList.remove("loading")
-
-        canvas.clearMarksPos()
-        canvas.globalIdx = 0 
-        canvas.marker.reset()
-        canvas.stepcounter.reset()
-        canvas.stepcursor.reset()
+        this.insertData(data.extract)
       }
     })
     .catch((error) => {

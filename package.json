@@ -1,9 +1,8 @@
 {
   "name": "anu",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "custom sequencer",
   "main": "main.js",
-  "bin": "pkg-scripts/index.js",
   "scripts": {
     "dev": "tauri dev",
     "build": "tauri build",
@@ -13,10 +12,12 @@
   },
   "license": "CC0-1.0",
   "repository": "",
-  "keywords": [ "" ],
+  "keywords": [
+    ""
+  ],
   "author": "Karnpapon Boonput",
   "dependencies": {},
   "devDependencies": {
-    "@tauri-apps/cli": "^1.2.3"
+    "@tauri-apps/cli": "^1.6.0"
   }
 }

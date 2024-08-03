@@ -1,4 +1,4 @@
-<img src="./src/media/images/banner2.png"/>
+<img src="resources/images/banner2.png"/>
 
 # `anu`
 
@@ -12,11 +12,11 @@ watch talk: [[ Regular Expression as an Irregular Musical Expression ]](https://
 
 &nbsp;
 
-<img src="./src/media/images/anu-ss.png"/>
-<img src="./src/media/images/anu-console.gif"/>
-<img src="./src/media/images/anu-ss-1.gif"/>
-<img src="./src/media/images/anu-ss-2.gif"/>
-<img src="./src/media/images/anu-ss-3.gif"/>
+<img src="resources/images/anu-ss.png"/>
+<img src="resources/images/anu-console.gif"/>
+<img src="resources/images/anu-ss-1.gif"/>
+<img src="resources/images/anu-ss-2.gif"/>
+<img src="resources/images/anu-ss-3.gif"/>
 
 ## usages
 - [OSC]: sending OSC message (based-on [`oscd`](https://github.com/karnpapon/oscd))
